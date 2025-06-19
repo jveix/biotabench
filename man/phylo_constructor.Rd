@@ -4,7 +4,7 @@
 \alias{phylo_constructor}
 \title{Phyloseq constructor}
 \usage{
-phylo_constructor(microbiota_data, id_col, metadata)
+phylo_constructor(microbiota_data, id_col, metadata, prev_cutoff = 5)
 }
 \arguments{
 \item{microbiota_data}{(Required). A data frame containing samples in rows and features with full taxonomy in cols.}
@@ -12,6 +12,8 @@ phylo_constructor(microbiota_data, id_col, metadata)
 \item{id_col}{(Required). String for a column in the data frame to be used as sample id.}
 
 \item{metadata}{(Optional). A data frame containing metadata for the experiment. Should contain the id_col.}
+
+\item{prev_cutoff}{(Optional). Prevalence cutoff for ASVs in the samples (default 5\%).}
 }
 \value{
 A \link[phyloseq]{phyloseq-class} object.
