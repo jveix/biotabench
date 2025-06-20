@@ -29,10 +29,10 @@ phylo_constructor <- function(microbiota_data, id_col, metadata, prev_cutoff = 5
   id_names <- microbiota_data[[id_col]]
   rownames(ft_table) <- id_names
 
-  tax_table <- do.call(rbind, lapply(colnames(ft_table), phyloseq::parse_taxonomy_qiime))
+  tax_table <- do.call(rbind, lapply(colnames(ft_table), parse_taxonomy_helper))
   colnames(tax_table)[1] <- "Domain"
 
-  tax_names <- paste("ASV", 1:nrow(tax_table), sep = "_")
+  tax_names <- tax_table[, "Species"]
   rownames(tax_table) <- tax_names
   colnames(ft_table) <- tax_names
 
